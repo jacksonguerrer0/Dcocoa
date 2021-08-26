@@ -12,6 +12,7 @@ export const ContainerMenu = styled.div`
         width: 4rem;
         height: 4rem;
         margin-left: 2rem;
+        cursor: pointer;
     }
     div{
         margin: 0 3rem;
@@ -27,6 +28,7 @@ export const ContainerMenu = styled.div`
             color: ${variables.colorFontBrownYellow};
             position: relative;
             font-size: 1.5rem;
+            cursor: pointer;
             span{
                 display: flex;
                 justify-content: center;
@@ -41,6 +43,7 @@ export const ContainerMenu = styled.div`
                 background-color: ${variables.colorFontBrownYellow};
                 border-radius: 100%;
                 padding: 0.2rem;
+                cursor: pointer;
             }
         }
     }

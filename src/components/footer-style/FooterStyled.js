@@ -8,11 +8,13 @@ export const ContainerFooter = styled.div`
     justify-content: space-between;
     align-items: center;
     background-color: ${variables.backgroundColorBrown};
-    align-self: flex-end;
+    position: relative;
+    bottom: 0;
     img{
         width: 6rem;
         height: 6rem;
         margin-left: 3rem;
+        cursor: pointer;
     }
     p{
         color: ${variables.colorFontBrownYellow};
