@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom'
 import { createGlobalStyle } from 'styled-components'
 import NavMenu from '../components/NavMenu'
 import Home from '../container/Home'
@@ -9,6 +9,8 @@ import Footer from '../components/Footer'
 import Products from '../container/Products'
 import DetailProduct from '../container/DetailProduct'
 import Card from '../container/Card'
+import Pay from '../container/Pay'
+import Login from '../container/Login'
 const GlobalStyle = createGlobalStyle`
     *{
         padding: 0;
@@ -49,10 +51,14 @@ const Routes = () => {
                 <Route path='/' exact component={Home} />
                 <Route path='/productos' exact component={Products} />
                 <Route path='/productos/:categorie' exact component={Products} />
-                <Route path='/detalle/:id' exact component={DetailProduct} />
+                <Route path='/detalle/:idProduct' exact component={DetailProduct} />
                 <Route path='/carrito' exact component={Card}  />
+                <Route path='/pagar/:idProductPay' exact component={Pay}  />
+                <Route path='/login' exact component={Login} />
+
             </Switch>
             <Footer />
+            <Redirect to='/login' />
         </Router>
     )
 }
