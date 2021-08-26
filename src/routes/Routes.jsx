@@ -1,16 +1,12 @@
 import React from 'react'
-import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Switch } from 'react-router-dom'
 import { createGlobalStyle } from 'styled-components'
-import NavMenu from '../components/NavMenu'
-import Home from '../container/Home'
 import { variables } from '../variables/variables'
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import Footer from '../components/Footer'
-import Products from '../container/Products'
-import DetailProduct from '../container/DetailProduct'
-import Card from '../container/Card'
-import Pay from '../container/Pay'
-import Login from '../container/Login'
+import PrivateRoutes from './PrivateRoutes'
+import AppPrivate from './AppPrivate'
+import PublicRoutes from './PublicRoutes'
+import AppPublic from './AppPublic'
 const GlobalStyle = createGlobalStyle`
     *{
         padding: 0;
@@ -42,23 +38,16 @@ const GlobalStyle = createGlobalStyle`
         font-size: 0.5rem;
     }
 `
+const auth = true
+
 const Routes = () => {
     return (
         <Router>
             <GlobalStyle />
-            <NavMenu />
             <Switch>
-                <Route path='/' exact component={Home} />
-                <Route path='/productos' exact component={Products} />
-                <Route path='/productos/:categorie' exact component={Products} />
-                <Route path='/detalle/:idProduct' exact component={DetailProduct} />
-                <Route path='/carrito' exact component={Card}  />
-                <Route path='/pagar/:idProductPay' exact component={Pay}  />
-                <Route path='/login' exact component={Login} />
-
+                <PrivateRoutes component={AppPrivate} auth={auth} exact path='/' />
+                <PublicRoutes component={AppPublic} auth={auth} exact />                
             </Switch>
-            <Footer />
-            <Redirect to='/login' />
         </Router>
     )
 }

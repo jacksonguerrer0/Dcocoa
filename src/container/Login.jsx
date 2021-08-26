@@ -6,12 +6,12 @@ const Login = () => {
         <ContainerLogin>
             <form>
                 <h3>Resgístrate</h3>
-                <input type="text" placeholder='Correo Electrónico'/>
-                <input type="text" placeholder= 'Contraseña' />
-                <input type="text" placeholder='Repite la contraseña' />
+                <input type='email' placeholder='Correo Electrónico'/>
+                <input type="password" placeholder= 'Contraseña' />
+                <input type="password" placeholder='Repite la contraseña' />
                 <button type='submit'>Iniciar</button>
                 <div className='iconsSession'>
-                <i class="fab fa-google"></i>
+                <i className="fab fa-google"></i>
                 </div>
             </form>
         </ContainerLogin>
