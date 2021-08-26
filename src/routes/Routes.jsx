@@ -7,6 +7,8 @@ import { variables } from '../variables/variables'
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import Footer from '../components/Footer'
 import Products from '../container/Products'
+import DetailProduct from '../container/DetailProduct'
+import Card from '../container/Card'
 const GlobalStyle = createGlobalStyle`
     *{
         padding: 0;
@@ -45,7 +47,10 @@ const Routes = () => {
             <NavMenu />
             <Switch>
                 <Route path='/' exact component={Home} />
-                <Route pathc='/productos/:categorie' exact component={Products}/>
+                <Route path='/productos' exact component={Products} />
+                <Route path='/productos/:categorie' exact component={Products} />
+                <Route path='/detalle/:id' exact component={DetailProduct} />
+                <Route path='/carrito' exact component={Card}  />
             </Switch>
             <Footer />
         </Router>

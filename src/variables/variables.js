@@ -5,6 +5,7 @@ export const variables = {
     colorFontBrownYellow: '#F1CF91',
     backgroundColorBrown: '#3B1D17',
     backgroundColor: '#E6DAD8',
+    gray: '#515151',
 
     logoDcocoa: 'https://jacksonguerrer0.github.io/Sprint3/img/logo.png'
 }

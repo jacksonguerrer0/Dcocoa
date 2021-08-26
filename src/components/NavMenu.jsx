@@ -19,7 +19,9 @@ const NavMenu = () => {
               <NavLink to='/contacto'>
                   Contacto
               </NavLink>
+              <NavLink to='/carrito'>
               <i className="fas fa-shopping-cart"><span>5</span></i>
+              </NavLink>
           </div>
         </ContainerMenu>
     )
