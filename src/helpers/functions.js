@@ -19,3 +19,10 @@ export const authChanged = (setAuth, dispatch) => {
         }
     })
 }
+
+export const filterCategory = (str, listProducts) => {
+    const filterProduct = listProducts.filter(ele =>(
+        ele.category.toLowerCase().includes(str.toLowerCase())
+    ))
+    return filterProduct
+}

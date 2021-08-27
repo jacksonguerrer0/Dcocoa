@@ -1,14 +1,56 @@
 import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux';
 import { Link, NavLink, useHistory, useParams } from 'react-router-dom'
+import { filterCategory } from '../helpers/functions';
 import { ContainerProducts } from './products-style/ProductsStyled'
 
 const Products = () => {
-    // const {categorie} =  useParams();
-    // const [category, setCategory] = useState('')
-    // console.log(category)
-    // useEffect(() => {
-    //     setCategory(categorie)
-    // }, [categorie])
+    const {categorie} =  useParams();
+    const {listProducts} = useSelector(state => state.products)
+    console.log(listProducts)
+console.log(categorie)
+    const controllProducts = () => {
+        if(categorie === undefined){
+            return(
+                listProducts.map((ele, i) => (
+                    <NavLink className='cartProduct' 
+                    style={{backgroundImage: `url(${ele?.img})`}}
+                    to={`/detalle/${i}`}
+                    key={i}>
+                        <p>{ele.name}</p>
+                    </NavLink>
+                ))
+            )
+        }
+        if(categorie === 'tortas'){
+            let filter = filterCategory('tortas', listProducts )
+            return(
+                filter.map((ele, i) => {
+                    return(
+                    <NavLink className='cartProduct' 
+                    style={{backgroundImage: `url(${ele?.img})`}}
+                    to={`/detalle/${i}`}
+                    key={i}>
+                        <p>{ele.name}</p>
+                    </NavLink>
+                )})
+            )
+        }
+        if(categorie === 'dulces'){
+            let filter = filterCategory('dulces', listProducts )
+            return(
+                filter.map((ele, i) => {
+                    return(
+                    <NavLink className='cartProduct' 
+                    style={{backgroundImage: `url(${ele?.img})`}}
+                    to={`/detalle/${i}`}
+                    key={i}>
+                        <p>{ele.name}</p>
+                    </NavLink>
+                )})
+            )
+        }
+    }
     return (
         <ContainerProducts>
             <div className='categories'>
@@ -19,12 +61,9 @@ const Products = () => {
                 </div>
             </div>
             <div className='products'>
-                <NavLink className='cartProduct' 
-                style={{backgroundImage: "url(https://m.media-amazon.com/images/I/913lCvAq-lL._SY445_.jpg)"}}
-                to={`/detalle/${2}`}
-                >
-                    <p>Nombre del producto</p>
-                </NavLink>
+                {
+                    controllProducts()
+                }
             </div>
         </ContainerProducts>
     )

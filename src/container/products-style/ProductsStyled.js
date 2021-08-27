@@ -48,6 +48,9 @@ export const ContainerProducts = styled.div`
                 bottom: 0;
                 max-height: 4rem;
                 padding: 0.5rem;
+                width: 100%;
+                min-height: 3rem ;
+                text-align: center;
             }
         }
     }
