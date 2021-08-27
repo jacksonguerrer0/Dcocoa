@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { BrowserRouter as Router, Switch } from 'react-router-dom'
 import { createGlobalStyle } from 'styled-components'
 import { variables } from '../variables/variables'
@@ -7,6 +7,8 @@ import PrivateRoutes from './PrivateRoutes'
 import AppPrivate from './AppPrivate'
 import PublicRoutes from './PublicRoutes'
 import AppPublic from './AppPublic'
+import {firebase} from '../firebase-config/firebaseConfig'
+import { authChanged } from '../helpers/functions';
 const GlobalStyle = createGlobalStyle`
     *{
         padding: 0;
@@ -38,9 +40,14 @@ const GlobalStyle = createGlobalStyle`
         font-size: 0.5rem;
     }
 `
-const auth = true
+
 
 const Routes = () => {
+    const [auth, setAuth] = useState(false)
+
+    useEffect(() => {
+        authChanged(setAuth)
+    }, [])
     return (
         <Router>
             <GlobalStyle />

@@ -1,9 +1,9 @@
 import {createStore, combineReducers, applyMiddleware, compose} from 'redux'
 import thunk from 'redux-thunk'
+import LoginDucks from './loginDucks';
 
 const rootReducer = combineReducers({
-    login: 'bien',
-    xd: 'xd'
+    login: LoginDucks
 })
 
 const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;

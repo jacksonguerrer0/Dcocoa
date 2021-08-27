@@ -1,7 +1,13 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { loginGoogle } from '../redux/loginDucks'
 import { ContainerLogin } from './login-style/LoginStyled'
 
 const Login = () => {
+    const dispatch = useDispatch()
+    const handleAuthGoogle = () => {
+        dispatch(loginGoogle())
+    }
     return (
         <ContainerLogin>
             <form>
@@ -11,7 +17,7 @@ const Login = () => {
                 <input type="password" placeholder='Repite la contraseña' />
                 <button type='submit'>Iniciar</button>
                 <div className='iconsSession'>
-                <i className="fab fa-google"></i>
+                <i className="fab fa-google" onClick={handleAuthGoogle}></i>
                 </div>
             </form>
         </ContainerLogin>
