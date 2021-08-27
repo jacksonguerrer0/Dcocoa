@@ -29,6 +29,7 @@ export const ContainerMenu = styled.div`
             position: relative;
             font-size: 1.5rem;
             cursor: pointer;
+            margin: 0 0.5rem;
             span{
                 display: flex;
                 justify-content: center;

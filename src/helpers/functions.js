@@ -1,4 +1,6 @@
 import {firebase} from '../firebase-config/firebaseConfig'
+import { getProduct } from '../redux/listProductsDucks'
+import { login } from '../redux/loginDucks'
 
 export const redirectWindow = (url) => {
     console.log(window)
@@ -6,10 +8,12 @@ export const redirectWindow = (url) => {
 }
 
 
-export const authChanged = (setAuth) => {
+export const authChanged = (setAuth, dispatch) => {
     firebase.auth().onAuthStateChanged(async (user) => {
         if (user?.uid) {
-            setAuth(true)
+            setAuth(true);
+            dispatch(getProduct())
+            dispatch(login(user.displayName, user.email))
         }else{
             setAuth(false)
         }

@@ -9,6 +9,7 @@ import PublicRoutes from './PublicRoutes'
 import AppPublic from './AppPublic'
 import {firebase} from '../firebase-config/firebaseConfig'
 import { authChanged } from '../helpers/functions';
+import { useDispatch } from 'react-redux';
 const GlobalStyle = createGlobalStyle`
     *{
         padding: 0;
@@ -44,9 +45,9 @@ const GlobalStyle = createGlobalStyle`
 
 const Routes = () => {
     const [auth, setAuth] = useState(false)
-
+    const dispatch = useDispatch()
     useEffect(() => {
-        authChanged(setAuth)
+        authChanged(setAuth, dispatch)
     }, [])
     return (
         <Router>

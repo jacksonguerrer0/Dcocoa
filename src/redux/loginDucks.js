@@ -12,6 +12,8 @@ const LoginDucks = (state={}, action) => {
                 name: action.payload.name,
                 email: action.payload.email
             }
+        case types.loggedOut:
+            return {}
         default:
             return state;
     }
@@ -26,6 +28,10 @@ export const login = (name, email) => ({
         name, email
     }
 })
+export const logout = () => ({
+    type: types.loggedOut
+})
+
 export const loginGoogle = () => async (dispatch) => {
     const {user} = await firebase.auth().signInWithPopup(google);
     await dispatch(login(user.displayName, user.email))
