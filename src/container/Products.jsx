@@ -15,7 +15,7 @@ console.log(categorie)
                 listProducts.map((ele, i) => (
                     <NavLink className='cartProduct' 
                     style={{backgroundImage: `url(${ele?.img})`}}
-                    to={`/detalle/${i}`}
+                    to={`/detalle/${ele.id}`}
                     key={i}>
                         <p>{ele.name}</p>
                     </NavLink>
@@ -29,7 +29,7 @@ console.log(categorie)
                     return(
                     <NavLink className='cartProduct' 
                     style={{backgroundImage: `url(${ele?.img})`}}
-                    to={`/detalle/${i}`}
+                    to={`/detalle/${ele.id}`}
                     key={i}>
                         <p>{ele.name}</p>
                     </NavLink>
@@ -43,7 +43,7 @@ console.log(categorie)
                     return(
                     <NavLink className='cartProduct' 
                     style={{backgroundImage: `url(${ele?.img})`}}
-                    to={`/detalle/${i}`}
+                    to={`/detalle/${ele.id}`}
                     key={i}>
                         <p>{ele.name}</p>
                     </NavLink>

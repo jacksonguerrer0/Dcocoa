@@ -26,3 +26,8 @@ export const filterCategory = (str, listProducts) => {
     ))
     return filterProduct
 }
+
+export const filterDetailProduct = (str, listProducts) => {
+    const filterProduct = listProducts.find(ele => ele.id === str)
+    return filterProduct
+}

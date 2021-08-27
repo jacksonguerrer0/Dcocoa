@@ -1,19 +1,46 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { useParams } from 'react-router-dom'
+import { filterDetailProduct } from '../helpers/functions'
+import { addProductCard } from '../redux/cardDucks'
 import { ContainerDetailProduct } from './detail-product-style/DetailProductStyled'
 
 const DetailProduct = () => {
-    return (
-        <ContainerDetailProduct>
-            <img src="https://jacksonguerrer0.github.io/Sprint3/img/dulces.jpg" alt="" />
+    const [quantity, setQuantity] = useState(1);
+
+    const dispatch = useDispatch()
+    const {idProduct} = useParams();
+    const {listProducts} = useSelector(state => state.products);
+
+    const handleQuantityChange = ({target}) => {
+        setQuantity(target.value)
+    }
+    const handleAddProductCard = () => {
+        let product = filterDetailProduct(idProduct, listProducts);
+        dispatch(addProductCard(quantity, product ))
+    }
+    const productDetail = () => {
+        let detailProduct = filterDetailProduct(idProduct, listProducts);
+        return (
+            <>
+            <img src={detailProduct.img} alt="" />
             <div className='contentInfoDetail'>
-                <h3>Nombre del producto</h3>
-                <h4>Precio </h4>
-                <p>Descripcion: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus ratione aliquid tenetur quam itaque eos mollitia. Adipisci excepturi molestiae dolorem aut quo animi, aliquam beatae numquam, iure laborum odit obcaecati?</p>
+                <h3>{detailProduct.name}</h3>
+                <h4>${detailProduct.price}</h4>
+                <p>{detailProduct.description}</p>
                 <div className='contentActionCard'>
-                    <input type="number" min='1' defaultValue='1'/>
-                    <button>Añadir al carrito</button>
+                    <input type="number" min='1' defaultValue={1} onChange={handleQuantityChange}/>
+                    <button onClick={handleAddProductCard}>Añadir al carrito</button>
                 </div>
             </div>
+            </>
+        )
+    }
+    return (
+        <ContainerDetailProduct>
+            {
+                productDetail()
+            }
         </ContainerDetailProduct>
     )
 }
