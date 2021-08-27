@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { useSelector } from 'react-redux';
-import { Link, NavLink, useHistory, useParams } from 'react-router-dom'
+import {  NavLink,  useParams } from 'react-router-dom'
 import { filterCategory } from '../helpers/functions';
 import { ContainerProducts } from './products-style/ProductsStyled'
 

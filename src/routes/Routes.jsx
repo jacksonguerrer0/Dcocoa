@@ -7,7 +7,6 @@ import PrivateRoutes from './PrivateRoutes'
 import AppPrivate from './AppPrivate'
 import PublicRoutes from './PublicRoutes'
 import AppPublic from './AppPublic'
-import {firebase} from '../firebase-config/firebaseConfig'
 import { authChanged } from '../helpers/functions';
 import { useDispatch } from 'react-redux';
 const GlobalStyle = createGlobalStyle`
@@ -48,7 +47,7 @@ const Routes = () => {
     const dispatch = useDispatch()
     useEffect(() => {
         authChanged(setAuth, dispatch)
-    }, [])
+    }, [dispatch])
     return (
         <Router>
             <GlobalStyle />

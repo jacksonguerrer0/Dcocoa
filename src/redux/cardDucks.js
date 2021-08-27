@@ -50,9 +50,21 @@ export const quantityTotal = (quantity) => (dispatch, state) => {
 
 export const addProductCard = (quantity, product ) => async(dispatch, selector) => {
     let newProduct = [];
-    newProduct.push({
-        ...product
-    })
+    let {productsCard} = selector().card
+
+    if (!productsCard) {
+        newProduct.push({
+            ...product,
+            quantity: quantity
+        })
+    }else{
+        let newQuantity = quantity + parseInt(productsCard.quantity)
+        newProduct.push({
+            ...product,
+            quantity: newQuantity
+        })
+    }
+
     dispatch(quantityOne(quantity))
     dispatch({
         type: types.productsCard,
