@@ -1,4 +1,4 @@
-import { firebase, db } from '../firebase-config/firebaseConfig'
+import {  db } from '../firebase-config/firebaseConfig'
 
 
 // reducer
