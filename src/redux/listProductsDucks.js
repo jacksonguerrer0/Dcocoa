@@ -22,7 +22,8 @@ export default listProductsDucks
 
 
 export const getProduct = () => async (dispatch) => {
-    const res = await db.collection('/Products').get();
+    const res = await db.collection('Products').get();
+    console.log(res)
     const products = []
     res.forEach(element => {
         products.push(element.data())

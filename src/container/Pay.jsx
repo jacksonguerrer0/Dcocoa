@@ -2,7 +2,6 @@ import React from 'react'
 // import { useDispatch } from 'react-redux'
 import { useForm } from '../hooks/useForm'
 import { ContainerPay } from './pay-style/PayStyled'
-import {  db } from '../firebase-config/firebaseConfig'
 
 const Pay = () => {
     const [values, handleInputChange, reset ] = useForm({
@@ -12,12 +11,11 @@ const Pay = () => {
         date: '',
         cvv: ''
     }) 
+    console.log(values)
     // const {name, email, cardNo, date, cvv} = values;
     // const dispatch = useDispatch()
     const handleSubmitPay = async (e) => {
         e.preventDefault()
-        let res = await db.collection('/Comprador').add({...values, totalPay: 232434})
-        console.log(res)
         reset()
     }
     return (

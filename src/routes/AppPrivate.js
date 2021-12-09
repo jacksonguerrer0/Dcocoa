@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import NavMenu from '../components/NavMenu'
 import Home from '../container/Home'
@@ -8,8 +8,12 @@ import DetailProduct from '../container/DetailProduct'
 import Card from '../container/Card'
 import Pay from '../container/Pay'
 import Error404 from './Error404'
+import { getProduct } from '../redux/listProductsDucks'
 
 const AppPrivate = () => {
+    useEffect(() => {
+        getProduct()
+    }, [])
     return (
         <Router>
             <NavMenu />

@@ -45,6 +45,7 @@ const GlobalStyle = createGlobalStyle`
 const Routes = () => {
     const [auth, setAuth] = useState(false)
     const dispatch = useDispatch()
+    
     useEffect(() => {
         authChanged(setAuth, dispatch)
     }, [dispatch])

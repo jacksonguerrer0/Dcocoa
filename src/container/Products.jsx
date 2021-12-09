@@ -7,8 +7,7 @@ import { ContainerProducts } from './products-style/ProductsStyled'
 const Products = () => {
     const {categorie} =  useParams();
     const {listProducts} = useSelector(state => state.products)
-    console.log(listProducts)
-console.log(categorie)
+
     const controllProducts = () => {
         if(categorie === undefined){
             return(
