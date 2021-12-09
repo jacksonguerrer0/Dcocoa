@@ -10,7 +10,7 @@ export const ContainerLogin = styled.div`
         align-items: center;
         flex-flow: column wrap;
         width: 25rem;
-        height: 25rem;
+        padding: 3rem;
         background-color: ${variables.colorFontBrownYellow};
         border-radius: 1rem;
         h3{
@@ -26,7 +26,9 @@ export const ContainerLogin = styled.div`
         .iconsSession{
             width: 70%;
             display: flex;
+            flex-flow: column wrap;
             justify-content: center;
+            align-items: center;
             border-top: 2px solid ${variables.backgroundColorBrown};
             i{
             margin-top: 1rem;

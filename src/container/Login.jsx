@@ -11,12 +11,13 @@ const Login = () => {
     return (
         <ContainerLogin>
             <form>
-                <h3>Resgístrate</h3>
+                {/* <h3>Resgístrate</h3>
                 <input type='email' placeholder='Correo Electrónico'/>
                 <input type="password" placeholder= 'Contraseña' />
                 <input type="password" placeholder='Repite la contraseña' />
-                <button type='submit'>Iniciar</button>
+                <button type='submit'>Iniciar</button> */}
                 <div className='iconsSession'>
+                <p>Inicia sesion con google</p>
                 <i className="fab fa-google" onClick={handleAuthGoogle}></i>
                 </div>
             </form>
